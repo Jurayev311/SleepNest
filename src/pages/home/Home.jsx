@@ -1,11 +1,10 @@
 import React from 'react'
+import Hero from '../../components/hero/Hero'
 
 const Home = () => {
   return (
     <section>
-        <div className='container mx-auto'>
-            
-        </div>
+            <Hero />
     </section>
   )
 }

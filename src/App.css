@@ -3,3 +3,8 @@
 *{
     font-family: "Unbounded", sans-serif;
 }
+
+.active {
+    color: #A17F4A;
+    font-weight: 500;
+}
