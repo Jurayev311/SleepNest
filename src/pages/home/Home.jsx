@@ -15,7 +15,9 @@ const Home = () => {
       <Info image={infoImage1} />
       <WinterCollection />
       <Info image={infoImage2} bgColor='#7F54B3'/>
+      <WinterCollection />
       <Info image={infoImage3} bgColor='#236F48'/>
+      <WinterCollection />
     </section>
   )
 }
