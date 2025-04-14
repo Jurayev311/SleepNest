@@ -13,7 +13,7 @@ export const WinterCollection = ({title}) => {
                 </div>
 
                 <div className='grid grid-cols-5 gap-9'>
-                    {data.map((item, index) => (
+                    {data?.map((item, index) => (
                         <div key={index} className='col-span-1 relative'>
                             <img src={item.image} alt={item.title} className='w-full rounded-2xl' />
                             <span className='absolute top-2 right-2 text-xl text-red-500 p-2 bg-[#D4D4D4] rounded-full cursor-pointer'><FaRegHeart /></span>
