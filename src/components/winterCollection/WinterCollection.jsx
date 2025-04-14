@@ -3,12 +3,12 @@ import {data} from '../../static/index'
 import { FaRegHeart } from "react-icons/fa";
 
 
-export const WinterCollection = () => {
+export const WinterCollection = ({title}) => {
     return (
         <section className='mt-[120px]'>
             <div className='container mx-auto'>
                 <div className='text-center'>
-                    <h2 className='text-[35px] font-bold mb-[30px]'>Qish kolleksiyasi</h2>
+                    <h2 className='text-[35px] font-bold mb-[30px]'>{title}</h2>
                     <p className='text-[16px] font-normal mb-[80px]'>Ekologik Toza Uyqu Mahsulotlari</p>
                 </div>
 
