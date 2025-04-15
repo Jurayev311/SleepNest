@@ -7,9 +7,12 @@ import infoImage2 from '../../assets/info2.png';
 import infoImage3 from '../../assets/info3.png';
 import WinterCollection from '../../components/winterCollection/WinterCollection';
 import News from '../../components/news/News';
+import ScrollToTop from '../../components/scroll/ScrollTop';
 
 const Home = () => {
   return (
+    <>
+    <ScrollToTop />
     <section>
       <Hero />
       <Services />
@@ -21,6 +24,7 @@ const Home = () => {
       <WinterCollection title="summer_collection_title" />
       <News />
     </section>
+    </>
   )
 }
 

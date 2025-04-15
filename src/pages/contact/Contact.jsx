@@ -3,6 +3,7 @@ import { MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import ScrollToTop from '../../components/scroll/ScrollTop';
 
 const Contact = () => {
   const { t } = useTranslation(); 
@@ -43,6 +44,8 @@ const Contact = () => {
   };
 
   return (
+    <>
+    <ScrollToTop />
     <section className="py-10 pt-[150px] bg-gray-50">
       <Toaster position="top-center" />
       <div className="container mx-auto px-4">
@@ -118,6 +121,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

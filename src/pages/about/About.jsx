@@ -1,11 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import about from '../../assets/about.png';
+import ScrollToTop from '../../components/scroll/ScrollTop';
 
 const About = () => {
   const { t } = useTranslation();
 
   return (
+    <>
+    <ScrollToTop />
     <section className="py-10 pt-[130px]">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
         <div className="md:w-1/2">
@@ -23,12 +26,12 @@ const About = () => {
           <p className="text-sm text-gray-700">{t('about_paragraph_11')}</p>
         </div>
 
-        {/* Image */}
         <div className="md:w-1/mb-3.5">
           <img src={about} alt="About" className="rounded-xl shadow-lg w-full object-cover" />
         </div>
       </div>
     </section>
+    </>
   );
 };
 

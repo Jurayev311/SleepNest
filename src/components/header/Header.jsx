@@ -24,7 +24,7 @@ const Header = () => {
             <NavLink to="/collection">{t('collection')}</NavLink>
             <NavLink to="/about">{t('about')}</NavLink>
             <NavLink to="/contact">{t('contact')}</NavLink>
-            <NavLink to="/wishlist"><FaHeart /></NavLink>
+            <NavLink to="/wishlist"><FaHeart className='wishlist__page' /></NavLink>
             <select onChange={handleChangeLanguage} value={i18n.language}>
               <option value="uz">Uzbek</option>
               <option value="ru">Русский</option>

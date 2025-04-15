@@ -6,6 +6,7 @@ import Home from './pages/home/Home'
 import Collection from './pages/collection/Collection'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
+import Wishlist from './pages/wishlist/Wishlist'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/collection' element={<Collection />}/>
           <Route path='/about' element={<About />}/>
           <Route path='/contact' element={<Contact />}/>
+          <Route path='/wishlist' element={<Wishlist />}/>
         </Route>
       </Routes>
     </>
