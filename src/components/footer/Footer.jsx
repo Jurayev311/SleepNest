@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import footer from '../../assets/footer.png';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
+  const { t } = useTranslation();
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -19,12 +21,12 @@ const Footer = () => {
       text: text
     })
     .then(() => {
-      alert("Email muvaffaqiyatli yuborildi!");
+      alert(t('subscribe_success'));
       setEmail('');
     })
     .catch((error) => {
       console.error("Xatolik:", error);
-      alert("Xatolik yuz berdi.");
+      alert(t('subscribe_error'));
     });
   };
 
@@ -34,40 +36,36 @@ const Footer = () => {
 
         <div>
           <img src={footer} alt="Sleepnest Logo" className="w-[300px] h-[91px] mb-5" />
-          <p className="text-sm leading-relaxed mb-5">
-            “Ekologik Toza Uyqu Mahsulotlari” ko‘p yillardan buyon butun dunyoda
-            foydalanish uchun paxta matolari ishlab chiqaradigan kompaniya hisoblanadi.
-          </p>
+          <p className="text-sm leading-relaxed mb-5">{t('footer_description')}</p>
         </div>
 
         <div>
-          <h3 className="font-semibold text-base mb-3">Menyu</h3>
+          <h3 className="font-semibold text-base mb-3">{t('menu')}</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:underline transition">Bosh sahifa</a></li>
-            <li><a href="#" className="hover:underline transition">To‘plam</a></li>
-            <li><a href="#" className="hover:underline transition">Biz haqimizda</a></li>
-            <li><a href="#" className="hover:underline transition">Kontaktlar</a></li>
+            <li><a href="#" className="hover:underline transition">{t('home')}</a></li>
+            <li><a href="#" className="hover:underline transition">{t('collection')}</a></li>
+            <li><a href="#" className="hover:underline transition">{t('about')}</a></li>
+            <li><a href="#" className="hover:underline transition">{t('contact')}</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 className="font-semibold text-base mb-3">Kontaktlar</h3>
+          <h3 className="font-semibold text-base mb-3">{t('contacts')}</h3>
           <ul className="text-sm space-y-1">
-            <li>Buxoro, st. Alpomish 80</li>
-            <li>Email: sleepnest@gmail.com</li>
-            <li>Telegram: @sleepnest</li>
-            <li>Tel: +998 94 033 72 12</li>
+            <li>{t('contact_address')}</li>
+            <li>{t('contact_email')}</li>
+            <li>{t('contact_telegram')}</li>
+            <li>{t('contact_phone')}</li>
           </ul>
         </div>
 
         <div>
-          <h3 className="font-semibold text-base mb-3">Elektron pochtamizga obuna bo‘ling</h3>
+          <h3 className="font-semibold text-base mb-3">{t('newsletter')}</h3>
           <form onSubmit={handleSubscribe} className="relative w-full">
             <input
               type="email"
               required
-              placeholder="Elektron pochtangiz"
-              aria-label="Elektron pochta"
+              placeholder={t('subscribe_placeholder')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full border px-4 py-3 pr-[130px] rounded-[20px] outline-none focus:ring-2 focus:ring-red-500"
@@ -76,10 +74,9 @@ const Footer = () => {
               type="submit"
               className="absolute right-1 top-1 bottom-1 bg-red-600 text-white px-4 rounded-[20px] hover:bg-red-700 transition"
             >
-              Obuna
+              {t('subscribe_button')}
             </button>
           </form>
-          <p className="text-xs text-gray-500 mt-2">Kamida bitta ro‘yxatni tanlang.</p>
         </div>
       </div>
 

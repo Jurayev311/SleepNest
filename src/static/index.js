@@ -11,43 +11,43 @@ import kuk from '../assets/kuk.png';
 
 export const data = [
     {
-        title: "Kvadratchalar",
+        title: "kvadratchalar",
         image: kvadratchalarImg
     },
     {
-        title: "Davralar",
+        title: "davralar",
         image: davralarImg
     },
     {
-        title: "Ikat",
+        title: "ikat",
         image: ikat
     },
     {
-        title: "Geometriya ko'k",
+        title: "kuk",
         image: kuk
     },
     {
-        title: "Tropik barglar",
+        title: "tropik_barglar",
         image: tropikBarglarImg
     },
     {
-        title: "Bambi",
+        title: "bambi",
         image: bambiImg
     },
     {
-        title: "Vizantiya",
+        title: "vizantiya",
         image: vizantiyaImg
     },
     {
-        title: "Kechki bog'",
+        title: "kechki_bog",
         image: kechkiBogImg
     },
     {
-        title: "Pat Markiz",
+        title: "pat_markiz",
         image: patMarkizImg
     },
     {
-        title: "Lavanda atirguları",
+        title: "lavanda_atirgulari",
         image: lavandaAtirgulariImg
     }
 ];

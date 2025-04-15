@@ -1,31 +1,34 @@
-import React from 'react'
-import { FaShippingFast, FaHeadphonesAlt, FaWallet } from 'react-icons/fa'
-import { BsPatchCheck } from 'react-icons/bs'
-
-const services = [
-  {
-    icon: <FaShippingFast className="text-[40px] text-red-500" />,
-    title: "Yetkazib berish bepul",
-    desc: "Barcha buyurtmalar uchun bepul yetkazib berish"
-  },
-  {
-    icon: <BsPatchCheck className="text-[40px] text-red-500" />,
-    title: "Qaytish kafolati",
-    desc: "30 kunlik pulni qaytarish"
-  },
-  {
-    icon: <FaHeadphonesAlt className="text-[40px] text-red-500" />,
-    title: "24/7 onlayn qo'llab-quvvatlash",
-    desc: "24/7 texnik yordam"
-  },
-  {
-    icon: <FaWallet className="text-[40px] text-red-500" />,
-    title: "Xavfsiz to'lov",
-    desc: "Barcha to'lov usullari qabul qilinadi"
-  }
-]
+import React from 'react';
+import { FaShippingFast, FaHeadphonesAlt, FaWallet } from 'react-icons/fa';
+import { BsPatchCheck } from 'react-icons/bs';
+import { useTranslation } from 'react-i18next';
 
 const Services = () => {
+  const { t } = useTranslation();
+
+  const services = [
+    {
+      icon: <FaShippingFast className="text-[40px] text-red-500" />,
+      title: t('delivery_free'),
+      desc: t('free_delivery_desc')
+    },
+    {
+      icon: <BsPatchCheck className="text-[40px] text-red-500" />,
+      title: t('return_guarantee'),
+      desc: t('return_guarantee_desc')
+    },
+    {
+      icon: <FaHeadphonesAlt className="text-[40px] text-red-500" />,
+      title: t('online_support'),
+      desc: t('online_support_desc')
+    },
+    {
+      icon: <FaWallet className="text-[40px] text-red-500" />,
+      title: t('secure_payment'),
+      desc: t('secure_payment_desc')
+    }
+  ];
+
   return (
     <section className='mt-[132px]'>
       <div className='container mx-auto'>
@@ -42,7 +45,7 @@ const Services = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;

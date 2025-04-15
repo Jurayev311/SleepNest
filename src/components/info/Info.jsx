@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-const Info = ({image, bgColor = '#464351'}) => {
+const Info = ({ image, bgColor = '#464351' }) => {
+    const { t } = useTranslation();
+
     return (
         <section className="mt-[120px]">
             <div className="container mx-auto">
@@ -8,7 +11,7 @@ const Info = ({image, bgColor = '#464351'}) => {
 
                     <div className="z-10">
                         <h2 className="text-[90px] font-extrabold">100%</h2>
-                        <p className="text-lg">Material sifati</p>
+                        <p className="text-lg">{t('material_quality')}</p>
                     </div>
 
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0">
@@ -17,19 +20,19 @@ const Info = ({image, bgColor = '#464351'}) => {
 
                     <div className="z-10 max-w-md">
                         <h2 className="text-[30px] font-semibold mb-5 leading-10">
-                            "Ekologik Toza Uyqu Mahsulotlari"
+                            {t("eco_product_title")}
                         </h2>
                         <p className="text-[16px] font-normal mb-5">
-                            Ko'p yillar davomida butun dunyoda foydalanish uchun paxta matolarini ishlab chiqaradigan kompaniya bo'lib kelgan
+                            {t("eco_product_desc")}
                         </p>
                         <button className="py-2.5 px-8 bg-white text-black rounded-4xl mt-1.5">
-                            To'plam
+                            {t("collection_button")}
                         </button>
                     </div>
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default Info
+export default Info;

@@ -1,30 +1,33 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import rasm1 from '../../assets/rasm1.png'
 import rasm2 from '../../assets/rasm2.png'
 import rasm3 from '../../assets/rasm3.png'
 
 const News = () => {
+    const { t } = useTranslation();
+
     const newsData = [
         {
             img: rasm1,
             date: '10/05/2024',
-            author: 'admin tomonidan',
-            title: 'Qanday qilib mukammal gadjetlarni tanlash mumkin',
-            desc: "Go'zal vodiyning bug' bilan to'lganida va meridian quyoshi tepalikka urilganda..."
+            author: t('news_author'),
+            title: t('news_item_1_title'),
+            desc: t('news_item_1_desc')
         },
         {
             img: rasm2,
             date: '10/05/2024',
-            author: 'admin tomonidan',
-            title: 'Zamonaviy texnologiyalardan qanday foydalanish kerak',
-            desc: "Texnologiyalar hayotimizni qanday o'zgartirishi haqida qiziqarli hikoyalar..."
+            author: t('news_author'),
+            title: t('news_item_2_title'),
+            desc: t('news_item_2_desc')
         },
         {
             img: rasm3,
             date: '10/05/2024',
-            author: 'admin tomonidan',
-            title: 'Kreativ g\'oyalarni amalga oshirish yo\'llari',
-            desc: "Ko'plab yangi kashfiyotlar yaratish jarayonida qanday qiyinchiliklarga duch kelinadi..."
+            author: t('news_author'),
+            title: t('news_item_3_title'),
+            desc: t('news_item_3_desc')
         }
     ]
 
@@ -32,8 +35,8 @@ const News = () => {
         <section className='mt-[120px]'>
             <div className='container mx-auto px-4'>
                 <div className='text-center'>
-                    <h2 className='text-[35px] font-bold mb-[30px]'>Yangiliklar</h2>
-                    <p className='text-[16px] font-normal mb-[80px] text-gray-400'>Ekologik Toza Uyqu Mahsulotlari</p>
+                    <h2 className='text-[35px] font-bold mb-[30px]'>{t('news_title')}</h2>
+                    <p className='text-[16px] font-normal mb-[80px] text-gray-400'>{t('news_desc')}</p>
                 </div>
 
                 <div className='grid md:grid-cols-3 gap-8'>

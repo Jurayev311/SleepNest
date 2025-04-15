@@ -1,32 +1,40 @@
-import React from 'react'
-import { FaHeart } from 'react-icons/fa'
-import { NavLink } from 'react-router-dom'
-import logo from '../../assets/logo.svg'
+// src/components/Header.jsx
+import React from 'react';
+import { FaHeart } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import logo from '../../assets/logo.svg';
 
 const Header = () => {
-    return (
-        <header>
-            <div className='container mx-auto'>
-                <nav className='flex items-center justify-between h-[79px]'>
-                    <div>
-                        <img src={logo} alt="logo image" />
-                    </div>
-                    <ul className='flex items-center gap-8 text-xl font-light'>
-                        <NavLink to={"/"}>Bosh sahifa</NavLink>
-                        <NavLink to={"/collection"}>To'plam</NavLink>
-                        <NavLink to={"/about"}>Biz haqimizda</NavLink>
-                        <NavLink to={"/contact"}>Kontaktlar</NavLink>
-                        <NavLink to={"/wishlist"}><FaHeart /></NavLink>
-                        <select name="" id="">
-                            <option value="uz">uz</option>
-                            <option value="ru">ru</option>
-                            <option value="en">en</option>
-                        </select>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    )
-}
+  const { t, i18n } = useTranslation();
 
-export default Header
+  const handleChangeLanguage = (e) => {
+    i18n.changeLanguage(e.target.value);
+  };
+
+  return (
+    <header className='fixed w-full bg-white shadow-md z-50'>
+      <div className="container mx-auto">
+        <nav className="flex items-center justify-between h-[79px]">
+          <div>
+            <img src={logo} alt="logo image" />
+          </div>
+          <ul className="flex items-center gap-8 text-xl font-light">
+            <NavLink to="/">{t('home')}</NavLink>
+            <NavLink to="/collection">{t('collection')}</NavLink>
+            <NavLink to="/about">{t('about')}</NavLink>
+            <NavLink to="/contact">{t('contact')}</NavLink>
+            <NavLink to="/wishlist"><FaHeart /></NavLink>
+            <select onChange={handleChangeLanguage} value={i18n.language}>
+              <option value="uz">Uzbek</option>
+              <option value="ru">Русский</option>
+              <option value="en">English</option>
+            </select>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
