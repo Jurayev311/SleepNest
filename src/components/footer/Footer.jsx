@@ -1,21 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import footer from '../../assets/footer.png';
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+
+    const token = "7749972902:AAH1K7jxCUEhh1ZLNSn-nDx4pgJLckawIxk";
+    const chat_id = "6324560189"; 
+    const url = `https://api.telegram.org/bot${token}/SendMessage`;
+
+    const text = `📰 Obuna bo'lgan email: ${email}`;
+
+    axios.post(url, {
+      chat_id: chat_id,
+      text: text
+    })
+    .then(() => {
+      alert("Email muvaffaqiyatli yuborildi!");
+      setEmail('');
+    })
+    .catch((error) => {
+      console.error("Xatolik:", error);
+      alert("Xatolik yuz berdi.");
+    });
+  };
+
   return (
     <footer className="bg-white text-gray-700 mt-[120px]">
       <div className="container mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
 
-        {/* Chap taraf logo va tavsif */}
         <div>
           <img src={footer} alt="Sleepnest Logo" className="w-[300px] h-[91px] mb-5" />
-          <p className="text-sm leading-relaxed">
+          <p className="text-sm leading-relaxed mb-5">
             “Ekologik Toza Uyqu Mahsulotlari” ko‘p yillardan buyon butun dunyoda
             foydalanish uchun paxta matolari ishlab chiqaradigan kompaniya hisoblanadi.
           </p>
         </div>
 
-        {/* Menyu */}
         <div>
           <h3 className="font-semibold text-base mb-3">Menyu</h3>
           <ul className="space-y-2 text-sm">
@@ -26,7 +50,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Kontaktlar */}
         <div>
           <h3 className="font-semibold text-base mb-3">Kontaktlar</h3>
           <ul className="text-sm space-y-1">
@@ -37,15 +60,16 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Obuna formasi */}
         <div>
           <h3 className="font-semibold text-base mb-3">Elektron pochtamizga obuna bo‘ling</h3>
-          <form className="relative w-full">
+          <form onSubmit={handleSubscribe} className="relative w-full">
             <input
               type="email"
               required
               placeholder="Elektron pochtangiz"
               aria-label="Elektron pochta"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full border px-4 py-3 pr-[130px] rounded-[20px] outline-none focus:ring-2 focus:ring-red-500"
             />
             <button
