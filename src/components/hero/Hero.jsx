@@ -15,14 +15,14 @@ const Hero = () => {
             className='w-[1100px] object-contain z-20 translate-x-[-120px] translate-y-[50px]'
           />
 
-          <div className='text-[#A17F4A] text-end z-0 translate-x-[-490px] translate-y-[-110px]'>
+          <div className='text-[#A17F4A] text-end z-0 translate-x-[-325px] translate-y-[-110px]'>
             <span className='text-[#7A5C33] text-[25px] font-bold mb-[20px] block'>
               {t('title')}
             </span>
             <span className='text-[55px] font-normal leading-none mb-[35px] block'>
               {t('subtitle')}
             </span>
-            <span className='text-[95px] font-normal leading-none block'>
+            <span className='text-[75px] font-normal leading-none block'>
               {t('description')}
             </span>
           </div>
