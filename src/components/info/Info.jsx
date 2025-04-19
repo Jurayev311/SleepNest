@@ -27,7 +27,7 @@ const Info = ({ image, bgColor = '#464351' }) => {
                             {t("eco_product_desc")}
                         </p>
                         <Link to={"/collection"}>
-                        <button className="py-2.5 px-8 bg-white text-black rounded-4xl mt-1.5">
+                        <button className="cursor-pointer active:scale-95 py-2.5 px-8 bg-white text-black rounded-4xl mt-1.5">
                             {t("collection_button")}
                         </button>
                         </Link>
