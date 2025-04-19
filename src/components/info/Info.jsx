@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Info = ({ image, bgColor = '#464351' }) => {
     const { t } = useTranslation();
@@ -25,9 +26,11 @@ const Info = ({ image, bgColor = '#464351' }) => {
                         <p className="text-[16px] font-normal mb-5">
                             {t("eco_product_desc")}
                         </p>
+                        <Link to={"/collection"}>
                         <button className="py-2.5 px-8 bg-white text-black rounded-4xl mt-1.5">
                             {t("collection_button")}
                         </button>
+                        </Link>
                     </div>
 
                     <div className="md:hidden w-full mt-5">
