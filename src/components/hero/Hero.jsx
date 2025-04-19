@@ -9,7 +9,6 @@ const Hero = () => {
     <section className="pt-[80px] sm:pt-[100px] md:pt-[120px]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between bg-[#F5EFE6] rounded-[40px] h-auto md:h-[508px] p-6 md:p-0">
-          {/* Text Section */}
           <div className="text-[#A17F4A] text-center md:text-end z-10 order-1 md:order-2 md:translate-x-[-50px] md:translate-y-[-20px]">
             <span className="text-[#7A5C33] text-[18px] sm:text-[22px] md:text-[25px] font-bold mb-[10px] md:mb-[20px] block">
               {t('title')}
@@ -22,7 +21,6 @@ const Hero = () => {
             </span>
           </div>
 
-          {/* Image Section */}
           <div className="w-full md:w-[70%] flex justify-center md:justify-start order-2 md:order-1">
             <img
               src={sleep}

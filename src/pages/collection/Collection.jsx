@@ -1,8 +1,13 @@
 import React from 'react'
+import WinterCollection from '../../components/winterCollection/WinterCollection'
 
 const Collection = () => {
   return (
-    <div className='min-h-screen'>Collection</div>
+    <section className='pt-[10px] mb-[20px]'>
+      <div className='container mx-auto'>
+        <WinterCollection />
+      </div>
+    </section>
   )
 }
 
