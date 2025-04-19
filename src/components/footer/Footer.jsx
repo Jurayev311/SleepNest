@@ -80,7 +80,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-black text-white text-center text-sm py-4">
+      <div className="bg-black text-white text-center text-sm py-4 mt-5">
         © 2024 MChJ Ekologik Toza Uyqu Mahsulotlari. Barcha huquqlar himoyalangan.
       </div>
     </footer>

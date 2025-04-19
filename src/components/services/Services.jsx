@@ -31,10 +31,22 @@ const Services = () => {
 
   return (
     <section className='mt-[132px]'>
-      <div className='container mx-auto'>
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[40px] px-4'>
+      <div className='container mx-auto px-4'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[40px]'>
           {services.map((item, index) => (
-            <div key={index} className='flex items-start justify-center gap-4'>
+            <div
+              key={index}
+              className='
+                flex 
+                flex-col 
+                sm:flex-row 
+                items-center 
+                sm:items-start 
+                text-center 
+                sm:text-left 
+                gap-3 
+              '
+            >
               <div>{item.icon}</div>
               <div>
                 <h2 className='font-semibold text-[18px] text-black mb-1'>{item.title}</h2>
