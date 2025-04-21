@@ -4,14 +4,14 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { data } from '../../static/index';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleWishlist } from '../../store/features/productsSlice';
-import ProductModal from '../modal/ProductModal'; // Modalni import qilamiz
+import ProductModal from '../modal/ProductModal'; 
 
-export const WinterCollection = () => {
+export const WinterCollection = ({title}) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const wishlist = useSelector(state => state.wishlist.items);
 
-    const [selectedProduct, setSelectedProduct] = useState(null); // modal uchun state
+    const [selectedProduct, setSelectedProduct] = useState(null); 
 
     const handleToggle = (item) => {
         dispatch(toggleWishlist(item));
@@ -25,7 +25,7 @@ export const WinterCollection = () => {
         <section className='mt-[120px]'>
             <div className='container mx-auto'>
                 <div className='text-center'>
-                    <h2 className='text-[35px] font-bold mb-[30px]'>{t('winter_collection_title')}</h2>
+                    <h2 className='text-[35px] font-bold mb-[30px]'>{t(title)}</h2>
                     <p className='text-[16px] font-normal mb-[80px]'>{t('winter_collection_desc')}</p>
                 </div>
 
@@ -34,13 +34,13 @@ export const WinterCollection = () => {
                         <div
                             key={item.id}
                             className='col-span-1 relative cursor-pointer'
-                            onClick={() => setSelectedProduct(item)} // mahsulotga bosilganda ochiladi
+                            onClick={() => setSelectedProduct(item)} 
                         >
                             <img src={item.image} alt={item.title} className='w-full rounded-2xl' />
 
                             <span
                                 onClick={(e) => {
-                                    e.stopPropagation(); // wishlist bosilganda modal ochilmasin
+                                    e.stopPropagation(); 
                                     handleToggle(item);
                                 }}
                                 className='absolute top-2 right-2 text-xl text-red-500 p-2 bg-[#D4D4D4] rounded-full'

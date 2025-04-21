@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import footer from '../../assets/footer.png';
+import { toast, Toaster } from 'react-hot-toast';
+
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -21,16 +23,18 @@ const Footer = () => {
       text: text
     })
     .then(() => {
-      alert(t('subscribe_success'));
+      toast.success(t('subscribe_success'));
       setEmail('');
     })
     .catch((error) => {
       console.error("Xatolik:", error);
-      alert(t('subscribe_error'));
+      toast.error(t('subscribe_error'));
     });
   };
 
   return (
+    <>
+    <Toaster position="top-right" reverseOrder={false} />
     <footer className="bg-white text-gray-700 mt-[120px]">
       <div className="container mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
 
@@ -84,6 +88,7 @@ const Footer = () => {
         © 2024 MChJ Ekologik Toza Uyqu Mahsulotlari. Barcha huquqlar himoyalangan.
       </div>
     </footer>
+    </>
   );
 };
 

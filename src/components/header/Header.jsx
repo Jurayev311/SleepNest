@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaHeart, FaBars, FaTimes } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import logo from '../../assets/logo.svg';
 
@@ -37,9 +37,9 @@ const Header = () => {
     <header className='fixed w-full bg-white shadow-md z-50'>
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between h-[79px]">
-          <div>
+          <Link to="/" className="flex items-center">
             <img src={logo} alt="logo" className='w-[120px]' />
-          </div>
+          </Link>
 
           <ul className="hidden md:flex items-center gap-8 text-lg font-light">
             <NavLink to="/">{t('home')}</NavLink>
