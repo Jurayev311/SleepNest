@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaHeart, FaBars, FaTimes } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -7,21 +7,38 @@ import logo from '../../assets/logo.svg';
 const Header = () => {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef();
+
+  const toggleMenu = () => {
+    setIsOpen(prev => !prev);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
   const handleChangeLanguage = (e) => {
     i18n.changeLanguage(e.target.value);
+    closeMenu(); 
   };
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (isOpen && menuRef.current && !menuRef.current.contains(e.target)) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
 
   return (
     <header className='fixed w-full bg-white shadow-md z-50'>
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between h-[79px]">
           <div>
-            <img src={logo} alt="logo image" className='w-[120px]' />
+            <img src={logo} alt="logo" className='w-[120px]' />
           </div>
 
           <ul className="hidden md:flex items-center gap-8 text-lg font-light">
@@ -49,13 +66,16 @@ const Header = () => {
         </nav>
 
         {isOpen && (
-          <div className="md:hidden mt-2 bg-white rounded shadow-lg py-4 px-6 absolute w-full top-[79px] left-0 z-40">
+          <div
+            ref={menuRef}
+            className="md:hidden mt-2 bg-white rounded shadow-lg py-4 px-6 absolute w-full top-[79px] left-0 z-40"
+          >
             <ul className="flex flex-col gap-4 text-lg font-light">
-              <NavLink to="/" onClick={toggleMenu}>{t('home')}</NavLink>
-              <NavLink to="/collection" onClick={toggleMenu}>{t('collection')}</NavLink>
-              <NavLink to="/about" onClick={toggleMenu}>{t('about')}</NavLink>
-              <NavLink to="/contact" onClick={toggleMenu}>{t('contact')}</NavLink>
-              <NavLink to="/wishlist" onClick={toggleMenu}>
+              <NavLink to="/" onClick={closeMenu}>{t('home')}</NavLink>
+              <NavLink to="/collection" onClick={closeMenu}>{t('collection')}</NavLink>
+              <NavLink to="/about" onClick={closeMenu}>{t('about')}</NavLink>
+              <NavLink to="/contact" onClick={closeMenu}>{t('contact')}</NavLink>
+              <NavLink to="/wishlist" onClick={closeMenu}>
                 <FaHeart className='wishlist__page inline mr-2' /> {t('wishlist')}
               </NavLink>
               <select

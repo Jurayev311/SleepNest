@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
     <ScrollToTop />
-    <section>
+    <section className='pt-14'>
       <Hero />
       <Services />
       <Info image={infoImage1} />
